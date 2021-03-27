@@ -62,7 +62,7 @@ public class ItemOreProduct extends Item {
 	@Override
 	public String getItemStackDisplayName(ItemStack itemstack) {
 		if(gameSettings.language.equals("zh_cn") || gameSettings.language.equals("zh_tw"))
-			return StatCollector.translateToLocal("material." + properties.get(itemstack.getItemDamage()).getUnlocalizedName() + ".name") + StatCollector.translateToLocal("type." + outputType + ".name");
+			return StatCollector.translateToLocal("" + "material." + properties.get(itemstack.getItemDamage()).getUnlocalizedName() + ".name") + StatCollector.translateToLocal("type." + outputType + ".name");
 		return StatCollector.translateToLocal("material." + properties.get(itemstack.getItemDamage()).getUnlocalizedName() + ".name") + " " + StatCollector.translateToLocal("type." + outputType + ".name");
 	}
 }
