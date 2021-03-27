@@ -12,6 +12,11 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
+/*
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.settings.GameSettings;
+*/
+
 public class ItemMaterialBlock extends ItemBlockWithMetadata {
 
 	public ItemMaterialBlock(Block block) {
@@ -41,6 +46,8 @@ public class ItemMaterialBlock extends ItemBlockWithMetadata {
 
 	@Override
 	public String getItemStackDisplayName(ItemStack itemstack) {
+		if(gameSettings.language.equals("zh_cn") || gameSettings.language.equals("zh_tw"))
+			return StatCollector.translateToLocal("material." + getMaterial(itemstack).getUnlocalizedName() + ".name") + StatCollector.translateToLocal(this.getUnlocalizedName());
 		return StatCollector.translateToLocal("material." + getMaterial(itemstack).getUnlocalizedName() + ".name") + " " + StatCollector.translateToLocal(this.getUnlocalizedName());
 	}
 	

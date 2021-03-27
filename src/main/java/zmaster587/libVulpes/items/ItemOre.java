@@ -8,6 +8,8 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlockWithMetadata;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.settings.GameSettings;
 
 public class ItemOre extends ItemBlockWithMetadata {
 
@@ -23,6 +25,8 @@ public class ItemOre extends ItemBlockWithMetadata {
 	@Override
     public String getItemStackDisplayName(ItemStack stack)
     {
+		if(gameSettings.language.equals("zh_cn") || gameSettings.language.equals("zh_tw"))
+			return ("" + StatCollector.translateToLocal(this.getUnlocalizedNameInefficiently(stack) + ".name") + StatCollector.translateToLocal("type." + ((BlockOre)this.field_150939_a).getProduct().name().toLowerCase(Locale.ENGLISH) + ".name")).trim();
         return ("" + StatCollector.translateToLocal(this.getUnlocalizedNameInefficiently(stack) + ".name") + " " + StatCollector.translateToLocal("type." + ((BlockOre)this.field_150939_a).getProduct().name().toLowerCase(Locale.ENGLISH) + ".name")).trim();
     }
 }
