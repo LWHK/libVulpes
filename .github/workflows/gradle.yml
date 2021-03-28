@@ -2,7 +2,7 @@ name: Java CI with Gradle
 on:
   push:
     branches:
-      - "1.12"
+      - "1.12-testing"
   release:
     types: [created]
 
