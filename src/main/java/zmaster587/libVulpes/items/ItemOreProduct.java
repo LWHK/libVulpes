@@ -62,14 +62,16 @@ public class ItemOreProduct extends Item {
 	public String getItemStackDisplayName(ItemStack itemstack) {
 
 		//Attempt to get a specific name first, then fall back
-		try {
+		try
+		{
 			String translate = "item." + properties.get(itemstack.getItemDamage()).getUnlocalizedName() + "." + outputType + ".name";
 			if(I18n.canTranslate(translate))
 				return I18n.translateToLocal(translate);
 			else //if(I18n.canTranslate(I18n.translateToLocal("translating.libVulpes.order.oreProduct")))
 				return I18n.translateToLocal(String.format(I18n.translateToLocal("translating.libVulpes.order.oreProduct"), I18n.translateToLocal("material." + properties.get(itemstack.getItemDamage()).getUnlocalizedName() + ".name"), I18n.translateToLocal("type." + outputType + ".name")));
-			} catch (NullPointerException e2) {
-				return "No name!!!";
-			}
+		} catch (NullPointerException e2)
+		{
+			return "No name!!!";
+		}
 	}
 }
