@@ -40,7 +40,6 @@ minecraft {
 }
 
 
-apply from: "gradle/scripts/jars.gradle"
 apply from: "gradle/scripts/version.gradle"
 
 group= "zmaster587.libVulpes" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
@@ -116,28 +115,6 @@ processResources
      mustRunAfter "jar" 
 }*/
 
-curseforge{
-  if (project.hasProperty("thecursedkey")) {
-        apiKey = project.thecursedkey
-    }
-    else {
-    apiKey = ""
-    }
-  project {
-  //libVulpes
-    id = "236541"
-    changelog = file('changelog.html')
-    changelogType = 'html'
-    releaseType = "beta"
-    addGameVersion minecraft.version
-    mainArtifact(jar) {
-      displayName = "LibVulpes ${project.version} build " + project.getBuildNumber() +  " for " + minecraft.version
-    }
-    addArtifact (deobfJar){
-    	 displayName = "LibVulpes ${project.version}-deobf build " + project.getBuildNumber() + " for " + minecraft.version
-    }
-   }
-}
 
 task makeChangelog(type: se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask) {
     file = new File ("changelog.html")
